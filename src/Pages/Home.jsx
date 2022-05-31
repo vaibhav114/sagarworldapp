@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-import { CountryList, Error, Navbar } from "../components";
+import { CountryList, Error, Loading, Navbar } from "../components";
 
 const COUNTRIES_INFO = gql`
   {
@@ -23,7 +23,7 @@ const Home = () => {
   return (
     <div>
       <Navbar />
-      {loading && <p>Loading...</p>}
+      {loading && <Loading />}
       {error && <Error error={error} />}
       {data && <CountryList countries={data.countries} />}
     </div>
