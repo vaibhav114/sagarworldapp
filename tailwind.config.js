@@ -1,5 +1,6 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx}"],
+  darkMode: true,
   theme: {
     colors: {
       blue: {

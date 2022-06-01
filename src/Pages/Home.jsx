@@ -3,7 +3,7 @@ import { CountryList, Error, Loading, Navbar } from "../components";
 
 const COUNTRIES_INFO = gql`
   {
-    countries(first: 12) {
+    countries(first: 14) {
       edges {
         node {
           name
@@ -21,7 +21,7 @@ const Home = () => {
   const { data, loading, error } = useQuery(COUNTRIES_INFO);
 
   return (
-    <div>
+    <div className="bg-blue-200">
       <Navbar />
       {loading && <Loading />}
       {error && <Error error={error} />}
