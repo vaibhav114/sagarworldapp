@@ -1,24 +1,43 @@
-import { useState } from "react";
-import { Switch } from "@headlessui/react";
+import { useEffect, useState } from "react";
 
-export default function Example() {
-  const [enabled, setEnabled] = useState(false);
+const ThemeSwitcher = () => {
+  const [theme, setTheme] = useState(null);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  }, []);
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme]);
 
   return (
-    <div className="py-16">
-      <Switch
-        checked={enabled}
-        onChange={setEnabled}
-        className={`${enabled ? "bg-teal-900" : "bg-teal-700"}
-          border-transparent relative inline-flex h-[38px] w-[74px] shrink-0 cursor-pointer rounded-full border-2 transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
+    <button
+      type="button"
+      className="flex flex-row items-center space-x-2 font-semibold"
+      onClick={() => {
+        setTheme(theme === "light" ? "dark" : "light");
+      }}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-5 w-5"
+        viewBox="0 0 20 20"
+        fill="currentColor"
       >
-        <span className="sr-only">Use setting</span>
-        <span
-          aria-hidden="true"
-          className={`${enabled ? "translate-x-9" : "translate-x-0"}
-            pointer-events-none inline-block h-[34px] w-[34px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
-        />
-      </Switch>
-    </div>
+        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+      </svg>
+      <span>Dark Mode</span>
+    </button>
   );
-}
+};
+
+export default ThemeSwitcher;
