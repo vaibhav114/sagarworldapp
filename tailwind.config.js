@@ -1,6 +1,6 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx}"],
-  darkMode: true,
+  darkMode: "class",
   theme: {
     colors: {
       blue: {
@@ -21,5 +21,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };
