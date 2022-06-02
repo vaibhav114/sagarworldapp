@@ -10,7 +10,7 @@ import {
 
 const COUNTRIES_INFO = gql`
   {
-    countries(first: 12) {
+    countries(first: 10) {
       edges {
         node {
           name
@@ -30,7 +30,7 @@ const Home = () => {
   return (
     <div className="bg-gray-100  dark:bg-blue-200">
       <Navbar />
-      <div className="mx-auto my-8 flex w-[90%] flex-col items-center justify-center sm:flex-row sm:justify-between md:w-[85%]">
+      <div className="mx-auto my-8 flex w-[90%] flex-col items-center justify-center sm:flex-row sm:justify-between lg:w-[86%]">
         <Search />
         <Filter />
       </div>

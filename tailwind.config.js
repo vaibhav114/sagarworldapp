@@ -3,6 +3,8 @@ module.exports = {
   darkMode: "class",
   theme: {
     colors: {
+      transparent: "transparent",
+      current: "currentColor",
       blue: {
         100: "#2b3945",
         200: "#202c37",
@@ -21,5 +23,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("@tailwindcss/forms")],
+  plugins: [],
 };

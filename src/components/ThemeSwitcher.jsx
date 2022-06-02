@@ -5,9 +5,9 @@ const ThemeSwitcher = () => {
 
   useEffect(() => {
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setTheme("dark");
-    } else {
       setTheme("light");
+    } else {
+      setTheme("dark");
     }
   }, []);
 
@@ -24,7 +24,7 @@ const ThemeSwitcher = () => {
       type="button"
       className="flex flex-row items-center space-x-2 font-semibold"
       onClick={() => {
-        setTheme(theme === "light" ? "dark" : "light");
+        setTheme(theme === "dark" ? "light" : "dark");
       }}
     >
       <svg

@@ -11,13 +11,13 @@ const REGION = [
 ];
 
 const Filter = () => {
-  const [region, setRegion] = useState(REGION[0]);
+  const [selectedRegion, setSelectedRegion] = useState(REGION[0]);
 
   return (
-    <div className="w-48 rounded-md mt-5 sm:mt-0 bg-white px-5 py-3 shadow-md dark:bg-blue-100">
-      <Listbox value={region} onChange={setRegion}>
+    <div className="mt-5 w-48 rounded-md bg-white px-5 py-3 shadow-md dark:bg-blue-100 sm:mt-0">
+      <Listbox value={selectedRegion} onChange={setSelectedRegion}>
         <Listbox.Button className="flex w-full items-center justify-between">
-          {region.name}
+          {selectedRegion.name}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"
@@ -31,7 +31,7 @@ const Filter = () => {
             />
           </svg>
         </Listbox.Button>
-        <Listbox.Options className="absolute z-50 mt-6 w-48 -translate-x-5 space-y-1 rounded-md bg-white p-4 shadow-md dark:bg-blue-100">
+        <Listbox.Options className="absolute z-50 w-48 -translate-x-5 space-y-1 rounded-md bg-white p-4 shadow-md dark:bg-blue-100">
           {REGION.slice(1).map((item) => (
             <Listbox.Option
               className={`cursor-pointer`}
