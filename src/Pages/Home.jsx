@@ -28,7 +28,7 @@ const Home = () => {
   const { data, loading, error } = useQuery(COUNTRIES_INFO);
 
   return (
-    <div className="bg-gray-100  dark:bg-blue-200">
+    <div className="bg-gray-100 h-max dark:bg-blue-200">
       <Navbar />
       <div className="mx-auto my-8 flex w-[90%] flex-col items-center justify-center sm:flex-row sm:justify-between lg:w-[86%]">
         <Search />

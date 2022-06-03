@@ -1,6 +1,6 @@
 const Loading = () => {
   return (
-    <div className="flex items-center  justify-center">
+    <div className="flex items-center h-screen justify-center">
       <svg
         className="h-[100px] w-[100px] "
         viewBox="0 0 100 100"
