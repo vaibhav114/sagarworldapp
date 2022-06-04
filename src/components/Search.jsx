@@ -1,7 +1,4 @@
-import { useState } from "react";
-
-const Search = () => {
-  const [search, setSearch] = useState("");
+const Search = ({ search, setSearch }) => {
   return (
     <div className="flex w-max items-center space-x-2 rounded-md bg-white px-5 py-2 shadow-md dark:bg-blue-100 sm:w-[35%]">
       <svg
@@ -20,7 +17,7 @@ const Search = () => {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         type="text"
-        className="w-[80%]  dark:bg-blue-100"
+        className="w-[80%] dark:bg-blue-100"
         placeholder="Search for a country"
       />
     </div>

@@ -1,23 +1,11 @@
 import { Listbox } from "@headlessui/react";
-import { useState } from "react";
 
-const REGION = [
-  { id: 1, name: "Filter by Region" },
-  { id: 2, name: "Africa" },
-  { id: 3, name: "America" },
-  { id: 4, name: "Asia" },
-  { id: 5, name: "Europe" },
-  { id: 6, name: "Oceania" },
-];
-
-const Filter = () => {
-  const [selectedRegion, setSelectedRegion] = useState(REGION[0]);
-
+const Filter = ({ regions, selectregion, setSelectRegion }) => {
   return (
     <div className="mt-5 w-48 rounded-md bg-white px-5 py-3 shadow-md dark:bg-blue-100 sm:mt-0">
-      <Listbox value={selectedRegion} onChange={setSelectedRegion}>
+      <Listbox value={selectregion} onChange={setSelectRegion}>
         <Listbox.Button className="flex w-full items-center justify-between">
-          {selectedRegion.name}
+          {selectregion.name}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"
@@ -32,13 +20,13 @@ const Filter = () => {
           </svg>
         </Listbox.Button>
         <Listbox.Options className="absolute right-[6.6rem] z-50 mt-4 w-48 space-y-1 rounded-md bg-white p-4 shadow-md dark:bg-blue-100">
-          {REGION.slice(1).map((item) => (
+          {regions.slice(1).map((region) => (
             <Listbox.Option
-              className={`cursor-pointer`}
-              key={item.id}
-              value={item}
+              key={region.id}
+              value={region}
+              className={`relative cursor-pointer`}
             >
-              {item.name}
+              {region.name}
             </Listbox.Option>
           ))}
         </Listbox.Options>

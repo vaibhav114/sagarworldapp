@@ -7,7 +7,7 @@ const Country = ({ name, population, region, capital, flag }) => {
         onClick={() => {
           console.log("clicked");
         }}
-        className="flex h-max w-max cursor-pointer  flex-col overflow-hidden rounded bg-white shadow-md dark:bg-blue-100"
+        className="flex h-max w-max cursor-pointer  flex-col overflow-hidden rounded bg-white shadow-md mb-4 dark:bg-blue-100"
       >
         <img src={flag} className="h-[158px] w-[264px]" alt="Country Flag" />
         <div className="space-y-1 p-5">
