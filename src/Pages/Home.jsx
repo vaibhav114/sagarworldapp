@@ -1,13 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import { useState } from "react";
-import {
-  CountryList,
-  Error,
-  Filter,
-  Loading,
-  Navbar,
-  Search,
-} from "../components";
+import { CountryList, Filter, Loading, Navbar, Search } from "../components";
 
 const regions = [
   { id: 1, name: "Filter by Region" },
@@ -19,7 +12,7 @@ const regions = [
 
 const COUNTRIES_INFO = gql`
   {
-    countries {
+    countries(first: 20) {
       edges {
         node {
           name
@@ -36,8 +29,9 @@ const COUNTRIES_INFO = gql`
 const Home = () => {
   const [search, setSearch] = useState("");
   const [selectregion, setSelectRegion] = useState(regions[0]);
-  const { data, loading, error } = useQuery(COUNTRIES_INFO);
+  const { data, loading } = useQuery(COUNTRIES_INFO);
 
+  // search feature
   const filteredCountries =
     search !== ""
       ? data?.countries?.edges?.filter((country) =>
@@ -45,8 +39,14 @@ const Home = () => {
         )
       : data?.countries?.edges;
 
-  
-    
+  // filter feature
+  const filteredCountriesByRegion =
+    selectregion.id !== 1
+      ? filteredCountries?.filter(
+          (country) => country.node.region === selectregion.name
+        )
+      : filteredCountries;
+
   return (
     <div className="bg-gray-100 dark:bg-blue-200">
       <Navbar />
@@ -59,8 +59,7 @@ const Home = () => {
         />
       </div>
       {loading && <Loading />}
-      {error && <Error error={error} />}
-      {data && <CountryList countries={filteredCountries} />}
+      {!loading && <CountryList countries={filteredCountriesByRegion} />}
     </div>
   );
 };
