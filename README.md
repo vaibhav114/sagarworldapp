@@ -45,8 +45,8 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### Links
 
-- Solution URL: [](https://github.com/sagardwivedi/world)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [GitHub](https://github.com/sagardwivedi/world)
+- Live Site URL: [WorldFind](https://worldfind.netlify.app/)
 
 ## My process
 
