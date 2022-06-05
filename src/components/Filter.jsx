@@ -19,8 +19,8 @@ const Filter = ({ regions, selectregion, setSelectRegion }) => {
             />
           </svg>
         </Listbox.Button>
-        <Listbox.Options className="absolute right-[6.6rem] z-50 mt-4 w-48 space-y-1 rounded-md bg-white p-4 shadow-md dark:bg-blue-100">
-          {regions.slice(1).map((region) => (
+        <Listbox.Options className="absolute z-10 mt-4 w-48 -translate-x-5 space-y-1 rounded-md bg-white p-4 shadow-md dark:bg-blue-100">
+          {regions.map((region) => (
             <Listbox.Option
               key={region.id}
               value={region}

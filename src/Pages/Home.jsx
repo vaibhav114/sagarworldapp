@@ -4,15 +4,16 @@ import { CountryList, Filter, Loading, Navbar, Search } from "../components";
 
 const regions = [
   { id: 1, name: "Filter by Region" },
-  { id: 2, name: "Europe" },
+  { id: 2, name: "Africa" },
   { id: 3, name: "Americas" },
-  { id: 4, name: "Africa" },
-  { id: 5, name: "Polar" },
+  { id: 4, name: "Asia" },
+  { id: 5, name: "Europe" },
+  { id: 6, name: "Polar" },
 ];
 
 const COUNTRIES_INFO = gql`
   {
-    countries(first: 20) {
+    countries {
       edges {
         node {
           name

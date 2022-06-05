@@ -17,7 +17,7 @@ const Search = ({ search, setSearch }) => {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         type="text"
-        className="w-[80%] dark:bg-blue-100"
+        className="w-[80%] border-0 focus-within:ring-0 dark:bg-blue-100"
         placeholder="Search for a country"
       />
     </div>
