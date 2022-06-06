@@ -3,7 +3,7 @@ import { useState } from "react";
 import { CountryList, Filter, Loading, Navbar, Search } from "../components";
 
 const regions = [
-  { id: 1, name: "Filter by Region" },
+  { id: 1, name: "All" },
   { id: 2, name: "Africa" },
   { id: 3, name: "Americas" },
   { id: 4, name: "Asia" },
