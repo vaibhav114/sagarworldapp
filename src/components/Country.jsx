@@ -1,13 +1,15 @@
 import { Slide } from "react-awesome-reveal";
+import { Link } from "react-router-dom";
 
 const Country = ({ name, population, region, capital, flag }) => {
+  const showDetail = () => {
+    <Link to={`/detail/${name}`} />;
+  };
   return (
     <Slide triggerOnce="true" direction="up">
       <div
-        onClick={() => {
-          console.log("clicked");
-        }}
-        className="flex h-max w-max cursor-pointer  flex-col overflow-hidden rounded bg-white shadow-md mb-4 dark:bg-blue-100"
+        onClick={showDetail}
+        className="mb-4 flex h-max w-max  cursor-pointer flex-col overflow-hidden rounded bg-white shadow-md dark:bg-blue-100"
       >
         <img src={flag} className="h-[158px] w-[264px]" alt="Country Flag" />
         <div className="space-y-1 p-5">

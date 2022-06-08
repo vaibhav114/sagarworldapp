@@ -8,7 +8,8 @@ const regions = [
   { id: 3, name: "Americas" },
   { id: 4, name: "Asia" },
   { id: 5, name: "Europe" },
-  { id: 6, name: "Polar" },
+  { id: 6, name: "Oceania" },
+  { id: 7, name: "Polar" },
 ];
 
 const COUNTRIES_INFO = gql`
