@@ -37,7 +37,7 @@ const Home = () => {
   const filteredCountries =
     search !== ""
       ? data?.countries?.edges?.filter((country) =>
-          country.node.name.toLowerCase().includes(search)
+          country.node.name.toLowerCase().includes(search.toLocaleLowerCase())
         )
       : data?.countries?.edges;
 
