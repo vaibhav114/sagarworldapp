@@ -1,27 +1,20 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx}"],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   darkMode: "class",
   theme: {
+    extend: {},
     colors: {
-      transparent: "transparent",
-      current: "currentColor",
-      blue: {
-        100: "#2b3945",
-        200: "#202c37",
-        300: "#111517",
-      },
-      gray: {
-        100: "#fafafa",
-        200: "#858585",
-      },
-      black: "#000",
       white: "#fff",
+      "very-light-gray": "#fafafa",
+      "dark-gray": "#858585",
+      "dark-blue-dark-background": "#202c37",
+      "dark-blue-light-text": "#111517",
+      "dark-blue": "#2b3945",
     },
-    extend: {
-      fontFamily: {
-        sans: ["Nunito Sans", "sans-serif"],
-      },
+    fontFamilys: {
+      sans: ["Nunito Sans", "sans-serif"],
     },
   },
-  plugins: [require("@tailwindcss/forms")],
+  plugins: [],
 };
