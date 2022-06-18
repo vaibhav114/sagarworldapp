@@ -1,6 +1,7 @@
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { useState } from "react";
 import { CountryList, Filter, Loading, Navbar, Search } from "../components";
+import getSchema from "../components/schema";
 
 const regions = [
   { id: 1, name: "All" },
@@ -12,26 +13,12 @@ const regions = [
   { id: 7, name: "Polar" },
 ];
 
-const COUNTRIES_INFO = gql`
-  {
-    countries {
-      edges {
-        node {
-          name
-          population
-          region
-          capital
-          flag
-        }
-      }
-    }
-  }
-`;
-
 const Home = () => {
   const [search, setSearch] = useState("");
   const [selectregion, setSelectRegion] = useState(regions[0]);
-  const { data, loading } = useQuery(COUNTRIES_INFO);
+
+  const query = getSchema();
+  const { data, loading } = useQuery(query);
 
   // search feature
   const filteredCountries =
@@ -50,9 +37,9 @@ const Home = () => {
       : filteredCountries;
 
   return (
-    <div className="bg-gray-100 dark:bg-blue-200">
+    <div className="text-sm">
       <Navbar />
-      <div className="mx-auto my-8 flex w-[90%] flex-col items-center justify-center sm:flex-row sm:justify-between lg:w-[86%]">
+      <div>
         <Search search={search} setSearch={setSearch} />
         <Filter
           regions={regions}

@@ -1,6 +1,6 @@
 const Search = ({ search, setSearch }) => {
   return (
-    <div className="flex w-max items-center space-x-2 rounded-md bg-white px-5 py-2 shadow-md dark:bg-blue-100 sm:w-[35%]">
+    <div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-5 w-5"
@@ -17,7 +17,6 @@ const Search = ({ search, setSearch }) => {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         type="text"
-        className="w-[80%] border-0 focus-within:ring-0 dark:bg-blue-100"
         placeholder="Search for a country"
       />
     </div>

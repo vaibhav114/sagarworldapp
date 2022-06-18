@@ -2,9 +2,9 @@ import { Listbox } from "@headlessui/react";
 
 const Filter = ({ regions, selectregion, setSelectRegion }) => {
   return (
-    <div className="mt-5 w-48 rounded-md bg-white px-5 py-3 shadow-md dark:bg-blue-100 sm:mt-0">
+    <div>
       <Listbox value={selectregion} onChange={setSelectRegion}>
-        <Listbox.Button className="flex w-full items-center justify-between">
+        <Listbox.Button>
           {selectregion.name}
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -19,13 +19,9 @@ const Filter = ({ regions, selectregion, setSelectRegion }) => {
             />
           </svg>
         </Listbox.Button>
-        <Listbox.Options className="absolute z-10 mt-4 w-48 -translate-x-5 space-y-1 rounded-md bg-white p-4 shadow-md dark:bg-blue-100">
+        <Listbox.Options>
           {regions.map((region) => (
-            <Listbox.Option
-              key={region.id}
-              value={region}
-              className={`relative cursor-pointer`}
-            >
+            <Listbox.Option key={region.id} value={region}>
               {region.name}
             </Listbox.Option>
           ))}

@@ -4,8 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Detail from "./Pages/Detail";
+import { BrowserRouter } from "react-router-dom";
 
 const BASE_URL = "https://graphql.country/graphql";
 
@@ -21,10 +20,7 @@ root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/details/:id" element={<Detail />} />
-        </Routes>
+        <App />
       </BrowserRouter>
     </ApolloProvider>
   </React.StrictMode>

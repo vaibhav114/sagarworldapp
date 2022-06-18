@@ -22,10 +22,10 @@ const ThemeSwitcher = () => {
   return (
     <button
       type="button"
-      className="flex flex-row items-center space-x-2 font-semibold"
       onClick={() => {
         setTheme(theme === "dark" ? "light" : "dark");
       }}
+      className="flex"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
