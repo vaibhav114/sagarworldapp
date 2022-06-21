@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 const COUNTRIES_INFO = gql`
   {
-    countries(first: 1) {
+    countries {
       edges {
         node {
           name
@@ -16,8 +16,6 @@ const COUNTRIES_INFO = gql`
   }
 `;
 
-const getSchema = () => {
+export const getCountriesInfo = () => {
   return COUNTRIES_INFO;
 };
-
-export default getSchema;

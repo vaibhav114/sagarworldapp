@@ -1,7 +1,8 @@
 import { useQuery } from "@apollo/client";
 import { useState } from "react";
-import { CountryList, Filter, Loading, Navbar, Search } from "../components";
-import getSchema from "../components/schema";
+import { CountryList, Filter, Loading, Search } from "../components";
+
+import { getCountriesInfo } from "../components/schema";
 
 const regions = [
   { id: 1, name: "All" },
@@ -17,8 +18,8 @@ const Home = () => {
   const [search, setSearch] = useState("");
   const [selectregion, setSelectRegion] = useState(regions[0]);
 
-  const query = getSchema();
-  const { data, loading } = useQuery(query);
+  const query = getCountriesInfo();
+  const { data, loading, error } = useQuery(query);
 
   // search feature
   const filteredCountries =
@@ -38,8 +39,7 @@ const Home = () => {
 
   return (
     <div className="text-sm">
-      <Navbar />
-      <div>
+      <div className="containe my-11 flex flex-col items-center justify-between space-y-4 sm:flex-row">
         <Search search={search} setSearch={setSearch} />
         <Filter
           regions={regions}
@@ -47,8 +47,11 @@ const Home = () => {
           setSelectRegion={setSelectRegion}
         />
       </div>
-      {loading && <Loading />}
-      {!loading && <CountryList countries={filteredCountriesByRegion} />}
+      <div className="containe">
+        {error && <div>{error.message}</div>}
+        {loading && <Loading />}
+        {!loading && <CountryList countries={filteredCountriesByRegion} />}
+      </div>
     </div>
   );
 };

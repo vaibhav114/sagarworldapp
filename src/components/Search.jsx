@@ -1,9 +1,12 @@
 const Search = ({ search, setSearch }) => {
+  const handleChange = (e) => {
+    setSearch(e.target.value);
+  };
   return (
-    <div>
+    <div className="flex h-[56px] items-center rounded-md bg-white shadow-md dark:bg-dark-blue sm:basis-[480px]">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-5 w-5"
+        className="ml-3 h-5 w-5"
         viewBox="0 0 20 20"
         fill="currentColor"
       >
@@ -13,12 +16,16 @@ const Search = ({ search, setSearch }) => {
           clipRule="evenodd"
         />
       </svg>
-      <input
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        type="text"
-        placeholder="Search for a country"
-      />
+      <form role={`search`}>
+        <input
+          value={search}
+          className="border-none bg-white text-dark-blue-light-text focus:ring-0 dark:bg-dark-blue dark:text-white"
+          onChange={handleChange}
+          type="search"
+          placeholder="Search for a country"
+          aria-label="Search for a country by name"
+        />
+      </form>
     </div>
   );
 };

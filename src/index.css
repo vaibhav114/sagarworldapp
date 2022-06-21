@@ -6,4 +6,8 @@
   body {
     @apply bg-very-light-gray text-dark-blue-light-text dark:bg-dark-blue-dark-background dark:text-white;
   }
+
+  .containe {
+    @apply w-[85%] mx-auto;
+  }
 }
