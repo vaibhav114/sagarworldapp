@@ -7,7 +7,11 @@
     @apply bg-very-light-gray text-dark-blue-light-text dark:bg-dark-blue-dark-background dark:text-white;
   }
 
+  .element-style {
+    @apply bg-white text-dark-blue-light-text shadow-md dark:bg-dark-blue dark:text-white;
+  }
+
   .containe {
-    @apply w-[85%] mx-auto;
+    @apply mx-auto w-[85%];
   }
 }

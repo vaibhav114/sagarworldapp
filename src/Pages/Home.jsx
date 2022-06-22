@@ -39,7 +39,7 @@ const Home = () => {
 
   return (
     <div className="text-sm">
-      <div className="containe my-11 flex flex-col items-center justify-between space-y-4 sm:flex-row">
+      <div className="containe my-11 flex flex-col items-center justify-between space-y-4 sm:flex-row sm:space-y-0">
         <Search search={search} setSearch={setSearch} />
         <Filter
           regions={regions}

@@ -1,9 +1,16 @@
+import { useEffect } from "react";
+
 const Search = ({ search, setSearch }) => {
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
+
+  useEffect(() => {
+    setSearch(search);
+  }, [search, setSearch]);
+
   return (
-    <div className="flex h-[56px] items-center rounded-md bg-white shadow-md dark:bg-dark-blue sm:basis-[480px]">
+    <div className="element-style flex h-[56px] items-center rounded-md sm:basis-[480px]">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="ml-3 h-5 w-5"
