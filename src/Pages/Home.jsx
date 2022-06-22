@@ -5,7 +5,7 @@ import { CountryList, Filter, Loading, Search } from "../components";
 import { getCountriesInfo } from "../components/schema";
 
 const regions = [
-  { id: 1, name: "All" },
+  { id: 1, name: "Filter by Region" },
   { id: 2, name: "Africa" },
   { id: 3, name: "Americas" },
   { id: 4, name: "Asia" },

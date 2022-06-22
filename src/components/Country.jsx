@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Country = ({ name, population, region, capital, flag }) => {
   return (
-    <div className="h-[339px] w-[262px] overflow-hidden rounded-md bg-white shadow-lg dark:bg-dark-blue">
+    <div className="element-style h-[339px] w-[262px] overflow-hidden rounded-md">
       <Link to={`${name}`}>
         <div className="h-1/2">
           <img
@@ -13,19 +13,23 @@ const Country = ({ name, population, region, capital, flag }) => {
           />
         </div>
         <div className="p-5">
-          <h2>{name}</h2>
-          <p>
-            <span>Population: </span>
-            {population.toLocaleString("en-US")}
-          </p>
-          <p>
-            <span>Region: </span>
-            {region}
-          </p>
-          <p>
-            <span>Capital: </span>
-            {capital}
-          </p>
+          <h2 className="mb-4 text-lg font-bold">{name}</h2>
+          <div className="space-y-1 font-semibold">
+            <p>
+              Population:{" "}
+              <span className="font-light text-very-light-gray">
+                {population.toLocaleString("en-US")}
+              </span>
+            </p>
+            <p>
+              Region:{" "}
+              <span className="font-light text-very-light-gray">{region}</span>
+            </p>
+            <p>
+              Capital:{" "}
+              <span className="font-light text-very-light-gray">{capital}</span>
+            </p>
+          </div>
         </div>
       </Link>
     </div>

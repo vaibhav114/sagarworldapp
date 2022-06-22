@@ -10,7 +10,7 @@ const Search = ({ search, setSearch }) => {
   }, [search, setSearch]);
 
   return (
-    <div className="element-style flex h-[56px] items-center rounded-md sm:basis-[480px]">
+    <div className="element-style flex h-[56px] items-center rounded-md px-4 sm:basis-[480px]">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="ml-3 h-5 w-5"
@@ -26,10 +26,10 @@ const Search = ({ search, setSearch }) => {
       <form role={`search`}>
         <input
           value={search}
-          className="border-none bg-white text-dark-blue-light-text focus:ring-0 dark:bg-dark-blue dark:text-white"
+          className="w-96 border-none bg-white text-dark-blue-light-text focus:ring-0 dark:bg-dark-blue dark:text-white dark:placeholder:text-white"
           onChange={handleChange}
           type="search"
-          placeholder="Search for a country"
+          placeholder="Search for a country..."
           aria-label="Search for a country by name"
         />
       </form>

@@ -4,7 +4,7 @@ const Filter = ({ regions, selectregion, setSelectRegion }) => {
   return (
     <>
       <Listbox
-        className="relative flex basis-40 element-style items-center rounded-md p-5 shadow-md"
+        className="element-style relative flex items-center rounded-md p-[18px] shadow-md sm:basis-48"
         as={`div`}
         value={selectregion}
         onChange={setSelectRegion}
@@ -17,7 +17,7 @@ const Filter = ({ regions, selectregion, setSelectRegion }) => {
               {selectregion.name}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className={`h-5 w-5 ${open ? `rotate-180` : ``}`}
+                className={`ml-8 h-5 w-5 sm:ml-0 ${open ? `rotate-180` : ``}`}
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -29,10 +29,14 @@ const Filter = ({ regions, selectregion, setSelectRegion }) => {
               </svg>
             </Listbox.Button>
             <Listbox.Options
-              className={`absolute top-[3.8rem] w-full element-style -translate-x-5 cursor-pointer rounded-md p-5`}
+              className={`element-style absolute top-16 w-full -translate-x-5 cursor-pointer rounded-md p-5`}
             >
-              {regions.map((region) => (
-                <Listbox.Option className={`py-1`} key={region.id} value={region}>
+              {regions.slice(1).map((region) => (
+                <Listbox.Option
+                  className={`mb-2 hover:text-dark-gray`}
+                  key={region.id}
+                  value={region}
+                >
                   {region.name}
                 </Listbox.Option>
               ))}

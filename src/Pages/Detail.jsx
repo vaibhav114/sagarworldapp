@@ -1,5 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import { Link, useParams } from "react-router-dom";
+import { Loading } from "../components";
 
 const COUNTRY_INFO = gql`
   query GET_COUNTRIES($name: String!) {
@@ -50,13 +51,13 @@ const Detail = () => {
 
   const countryBorder = country?.borders;
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
   if (error) return <p>Error!</p>;
   if (data)
     return (
       <div className="containe text-base">
         <Link to="/">Back</Link>
-        <div className="grid grid-cols-2 place-content-center place-items-center">
+        <div className="grid grid-cols-1 place-content-center place-items-center sm:grid-cols-2">
           <div>
             <img
               src={country.flag}
@@ -66,8 +67,8 @@ const Detail = () => {
           </div>
           <div>
             <h1 className="text-3xl font-bold">{country.name}</h1>
-            <div className="grid grid-cols-2 gap-x-10">
-              <div>
+            <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 sm:gap-x-10">
+              <div className="space-y-2">
                 <p>Native Name: {country.nativeName}</p>
                 <p>Population: {country.population}</p>
                 <p>Region: {country.region}</p>
