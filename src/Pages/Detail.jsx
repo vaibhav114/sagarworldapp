@@ -55,9 +55,27 @@ const Detail = () => {
   if (error) return <p>Error!</p>;
   if (data)
     return (
-      <div className="containe text-base">
-        <Link to="/">Back</Link>
-        <div className="grid grid-cols-1 place-content-center place-items-center sm:grid-cols-2">
+      <div className="containe  text-base">
+        <p className="element-style my-4 w-min py-2 px-8 shadow-lg">
+          <Link className="flex items-center justify-center  space-x-2" to="/">
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </span>
+            <span>Back</span>
+          </Link>
+        </p>
+        <div className="flex flex-row flex-wrap">
           <div>
             <img
               src={country.flag}
@@ -67,8 +85,8 @@ const Detail = () => {
           </div>
           <div>
             <h1 className="text-3xl font-bold">{country.name}</h1>
-            <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 sm:gap-x-10">
-              <div className="space-y-2">
+            <div className="flex flex-row flex-wrap">
+              <div className="">
                 <p>Native Name: {country.nativeName}</p>
                 <p>Population: {country.population}</p>
                 <p>Region: {country.region}</p>
