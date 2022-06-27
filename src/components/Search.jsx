@@ -26,7 +26,7 @@ const Search = ({ search, setSearch }) => {
       <form role={`search`}>
         <input
           value={search}
-          className="w-96 border-none bg-white text-dark-blue-light-text focus:ring-0 dark:bg-dark-blue dark:text-white dark:placeholder:text-white"
+          className="border-none bg-white text-dark-blue-light-text focus:ring-0 dark:bg-dark-blue dark:text-white dark:placeholder:text-white"
           onChange={handleChange}
           type="search"
           placeholder="Search for a country..."
