@@ -55,9 +55,9 @@ const Detail = () => {
   if (error) return <p>Error!</p>;
   if (data)
     return (
-      <div className="containe  text-base">
-        <p className="element-style my-4 w-min py-2 px-8 shadow-lg">
-          <Link className="flex items-center justify-center  space-x-2" to="/">
+      <div className="containe text-base">
+        <Link to="/">
+          <p className="element-style my-[3rem] flex w-min items-center justify-center space-x-2 py-2 px-8 shadow-lg">
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -73,27 +73,28 @@ const Detail = () => {
               </svg>
             </span>
             <span>Back</span>
-          </Link>
-        </p>
-        <div className="flex flex-row flex-wrap">
-          <div>
-            <img
-              src={country.flag}
-              className={`drop-shadow-xl`}
-              alt={country.name}
-            />
-          </div>
-          <div>
+          </p>
+        </Link>
+        <div className="grid grid-cols-2 gap-x-[8rem]">
+          <img
+            src={country.flag}
+            className={`drop-shadow-xl object-cover`}
+            alt={country.name}
+          />
+          <div className="my-[4rem]">
             <h1 className="text-3xl font-bold">{country.name}</h1>
-            <div className="flex flex-row flex-wrap">
-              <div className="">
-                <p>Native Name: {country.nativeName}</p>
+            <div className="mt-8 grid grid-cols-2">
+              <div className="space-y-2">
+                <p>
+                  Native Name:{" "}
+                  <span className="text-dark-gray">{country.nativeName}</span>
+                </p>
                 <p>Population: {country.population}</p>
                 <p>Region: {country.region}</p>
                 <p>Sub Region: {country.subregion}</p>
                 <p>Capital: {country.capital}</p>
               </div>
-              <div>
+              <div className="space-y-2">
                 <p>Top Level Domain: {country.topLevelDomain}</p>
                 <p>Currencies: {countryCurrency.name}</p>
                 <p>
@@ -103,7 +104,14 @@ const Detail = () => {
               </div>
             </div>
             <div>
-              <p>Border: {countryBorder.map((border) => border)}</p>
+              <p className="mt-20 space-x-2">
+                Border Countries:{" "}
+                {countryBorder.map((border) => (
+                  <span key={border} className="element-style py-1 px-4">
+                    {border}
+                  </span>
+                ))}
+              </p>
             </div>
           </div>
         </div>
