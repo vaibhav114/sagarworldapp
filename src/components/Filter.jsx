@@ -1,4 +1,4 @@
-import { Listbox } from "@headlessui/react";
+import { Listbox, Transition } from "@headlessui/react";
 
 const Filter = ({ regions, selectregion, setSelectRegion }) => {
   return (
@@ -17,7 +17,11 @@ const Filter = ({ regions, selectregion, setSelectRegion }) => {
               {selectregion.name}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className={`ml-8 h-5 w-5 sm:ml-0 ${open ? `rotate-180` : ``}`}
+                className={`ml-8 h-5 w-5 sm:ml-0 ${
+                  open
+                    ? `rotate-180 transition-all`
+                    : `transition-all`
+                }`}
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -28,19 +32,21 @@ const Filter = ({ regions, selectregion, setSelectRegion }) => {
                 />
               </svg>
             </Listbox.Button>
-            <Listbox.Options
+            <Transition
               className={`element-style absolute top-16 w-full -translate-x-5 cursor-pointer rounded-md p-5`}
             >
-              {regions.slice(1).map((region) => (
-                <Listbox.Option
-                  className={`mb-2 hover:text-dark-gray`}
-                  key={region.id}
-                  value={region}
-                >
-                  {region.name}
-                </Listbox.Option>
-              ))}
-            </Listbox.Options>
+              <Listbox.Options>
+                {regions.slice(1).map((region) => (
+                  <Listbox.Option
+                    className={`mb-2 hover:text-dark-gray`}
+                    key={region.id}
+                    value={region}
+                  >
+                    {region.name}
+                  </Listbox.Option>
+                ))}
+              </Listbox.Options>
+            </Transition>
           </>
         )}
       </Listbox>

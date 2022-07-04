@@ -16,18 +16,13 @@ const Country = ({ name, population, region, capital, flag }) => {
           <h2 className="mb-4 text-lg font-bold">{name}</h2>
           <div className="space-y-1 font-semibold">
             <p>
-              Population:{" "}
-              <span className="font-light text-very-light-gray">
-                {population.toLocaleString("en-US")}
-              </span>
+              Population: <span>{population.toLocaleString("en-US")}</span>
             </p>
             <p>
-              Region:{" "}
-              <span className="font-light text-very-light-gray">{region}</span>
+              Region: <span>{region}</span>
             </p>
             <p>
-              Capital:{" "}
-              <span className="font-light text-very-light-gray">{capital}</span>
+              Capital: <span>{capital}</span>
             </p>
           </div>
         </div>
