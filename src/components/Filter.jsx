@@ -18,9 +18,7 @@ const Filter = ({ regions, selectregion, setSelectRegion }) => {
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className={`ml-8 h-5 w-5 sm:ml-0 ${
-                  open
-                    ? `rotate-180 transition-all`
-                    : `transition-all`
+                  open ? `rotate-180 transition-all` : `transition-all`
                 }`}
                 viewBox="0 0 20 20"
                 fill="currentColor"

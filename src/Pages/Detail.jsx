@@ -60,7 +60,7 @@ const Detail = () => {
           <Link className="flex items-center justify-center" to="/">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 mr-2"
+              className="mr-2 h-5 w-5"
               viewBox="0 0 20 20"
               fill="currentColor"
             >
@@ -87,7 +87,7 @@ const Detail = () => {
                   Native Name:{" "}
                   <span className="text-dark-gray">{country.nativeName}</span>
                 </p>
-                <p>Population: {country.population}</p>
+                <p>Population: {country.population.toLocaleString("en-US")}</p>
                 <p>Region: {country.region}</p>
                 <p>Sub Region: {country.subregion}</p>
                 <p>Capital: {country.capital}</p>
@@ -106,7 +106,7 @@ const Detail = () => {
                 Border Countries:{" "}
                 {countryBorder.map((border) => (
                   <span key={border} className="element-style py-1 px-4">
-                    {border}
+                    <Link to={`${border}`}>{border}</Link>
                   </span>
                 ))}
               </p>
