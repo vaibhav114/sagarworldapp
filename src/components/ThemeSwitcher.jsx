@@ -25,12 +25,12 @@ const ThemeSwitcher = () => {
       onClick={() => {
         setTheme(theme === "dark" ? "light" : "dark");
       }}
-      className="flex items-center"
+      className="flex items-center text-xs"
     >
       {theme === "dark" ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
+          className="h-4 w-4 mobileL:h-5 mobileL:w-5"
           viewBox="0 0 20 20"
           fill="currentColor"
         >
@@ -50,7 +50,7 @@ const ThemeSwitcher = () => {
           />
         </svg>
       )}
-      {theme === "dark" ? "Dark" : "Light"}
+      {theme === "dark" ? "Dark Mode" : "Light Mode"}
     </button>
   );
 };

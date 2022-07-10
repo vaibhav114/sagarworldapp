@@ -3,7 +3,14 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   darkMode: "class",
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        mobile: "375px",
+        mobileL: "426px",
+        tablet: "769px",
+        laptop: "1024px",
+      },
+    },
     colors: {
       white: "#fff",
       "very-light-gray": "#fafafa",

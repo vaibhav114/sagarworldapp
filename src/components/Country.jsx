@@ -1,9 +1,10 @@
+import { memo } from "react";
 import { Link } from "react-router-dom";
 
-const Country = ({ name, population, region, capital, flag }) => {
+const Country = ({ id, name, population, region, capital, flag }) => {
   return (
     <div className="element-style h-[339px] w-[262px] overflow-hidden rounded-md">
-      <Link to={`${name}`}>
+      <Link to={`/${name}/${id}`}>
         <div className="h-1/2">
           <img
             loading="lazy"
@@ -31,4 +32,4 @@ const Country = ({ name, population, region, capital, flag }) => {
   );
 };
 
-export default Country;
+export default memo(Country);

@@ -1,8 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { useState } from "react";
 import { CountryList, Filter, Loading, Search } from "../components";
-
-import { getCountriesInfo } from "../components/schema";
+import { COUNTRIES_INFO } from "../components/schema";
 
 const regions = [
   { id: 1, name: "Filter by Region" },
@@ -18,8 +17,7 @@ const Home = () => {
   const [search, setSearch] = useState("");
   const [selectregion, setSelectRegion] = useState(regions[0]);
 
-  const query = getCountriesInfo();
-  const { data, loading, error } = useQuery(query);
+  const { data, loading, error } = useQuery(COUNTRIES_INFO);
 
   // search feature
   const filteredCountries =
