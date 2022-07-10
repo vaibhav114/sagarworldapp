@@ -16,7 +16,7 @@ const Detail = () => {
   if (data)
     return (
       <div className="containe text-base">
-        <p className="element-style mt-4 mobileL:mt-[3rem] w-min py-1 px-5 shadow-lg">
+        <p className="element-style mt-10 w-min py-1 px-5 shadow-xl mobileL:mt-[3rem]">
           <Link className="flex items-center justify-center" to="/">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +33,7 @@ const Detail = () => {
             Back
           </Link>
         </p>
-        <div className="grid gap-x-[8rem] mt-10 mobileL:grid-cols-2">
+        <div className="">
           <img src={data.country.flag} alt={data.country.name} />
           <DetailCountryInfo {...data.country} />
         </div>

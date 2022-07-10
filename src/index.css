@@ -14,4 +14,8 @@
   .containe {
     @apply mx-auto w-[85%];
   }
+
+  .detail > p > span {
+    @apply text-white/60;
+  }
 }
