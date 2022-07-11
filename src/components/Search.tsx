@@ -1,9 +1,6 @@
 import { useEffect } from "react";
+import { SearchProps } from "../utils/Props";
 
-type SearchProps = {
-  search: string;
-  setSearch: (search: string) => void;
-};
 
 const Search = ({ search, setSearch }: SearchProps) => {
   const handleChange = (e: { target: { value: string; }; }) => {

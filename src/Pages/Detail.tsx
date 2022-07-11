@@ -3,7 +3,7 @@ import { memo } from "react";
 
 import { Link, useParams } from "react-router-dom";
 import { DetailCountryInfo, Loading } from "../components";
-import { COUNTRY_INFO } from "../components/schema";
+import { COUNTRY_INFO } from "../utils/schema";
 
 const Detail = () => {
   const countryName = useParams();

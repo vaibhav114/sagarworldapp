@@ -6,16 +6,20 @@ interface DetailCountryInfoProps {
   subregion: string;
   capital: string;
   topLevelDomain: string;
-  currencies: string;
-  languages: [
-    edges {
-      node {
-        name: string
-      }
-    }
-  ];
+  currencies: {
+    edges: commanProp[];
+  };
+  languages: {
+    edges: commanProp[];
+  };
   borders: string[];
 }
+
+type commanProp = {
+  node: {
+    name: string;
+  };
+};
 
 const DetailCountryInfo = ({
   name,
@@ -29,7 +33,7 @@ const DetailCountryInfo = ({
   languages,
   borders,
 }: DetailCountryInfoProps) => {
-  const language = languages.edges.map(({ node }) => node.name);
+  const language = languages.edges.map((language) => language.node.name);
   const currency = currencies.edges.map(({ node }) => node.name);
 
   const CountryInfo = [

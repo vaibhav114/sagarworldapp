@@ -1,6 +1,17 @@
 import { Listbox, Transition } from "@headlessui/react";
 
-const Filter = ({ regions, selectregion, setSelectRegion }) => {
+interface FilterProps {
+  regions: region[];
+  selectregion: region;
+  setSelectRegion: (region: region) => void;
+}
+
+type region = {
+  id: number;
+  name: string;
+};
+
+const Filter = ({ regions, selectregion, setSelectRegion }: FilterProps) => {
   return (
     <>
       <Listbox

@@ -1,14 +1,6 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
-
-type CountryProps = {
-  id: string;
-  name: string;
-  population: number;
-  region: string;
-  capital: string;
-  flag: string;
-};
+import { CountryProps } from "../utils/Props";
 
 const Country = ({
   id,

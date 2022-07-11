@@ -1,7 +1,8 @@
 import { useQuery } from "@apollo/client";
 import { useState } from "react";
 import { CountryList, Filter, Loading, Search } from "../components";
-import { COUNTRIES_INFO } from "../components/schema";
+import { CountryNodeProps } from "../utils/Props";
+import { COUNTRIES_INFO } from "../utils/schema";
 
 const REGIONS = [
   { id: 1, name: "Filter by Region" },
@@ -13,19 +14,6 @@ const REGIONS = [
   { id: 7, name: "Polar" },
 ];
 
-type Prop = propCountry[];
-
-export interface propCountry {
-  node: {
-    id: string;
-    name: string;
-    population: string;
-    region: string;
-    capital: string;
-    flag: string;
-  };
-}
-
 const Home = () => {
   const [search, setSearch] = useState<string>("");
   const [selectregion, setSelectRegion] = useState(REGIONS[0]);
@@ -33,9 +21,9 @@ const Home = () => {
   const { data, loading, error } = useQuery(COUNTRIES_INFO);
 
   // search feature
-  const filteredCountries: Prop =
+  const filteredCountries =
     search !== ""
-      ? data?.countries?.edges?.filter((country: propCountry) =>
+      ? data?.countries?.edges?.filter((country: CountryNodeProps) =>
           country.node.name.toLowerCase().includes(search.toLocaleLowerCase())
         )
       : data?.countries?.edges;
@@ -44,7 +32,8 @@ const Home = () => {
   const filteredCountriesByRegion =
     selectregion.id !== 1
       ? filteredCountries?.filter(
-          (country: propCountry) => country.node.region === selectregion.name
+          (country: CountryNodeProps) =>
+            country.node.region === selectregion.name
         )
       : filteredCountries;
 
