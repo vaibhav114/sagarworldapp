@@ -10,6 +10,9 @@ module.exports = {
         tablet: "769px",
         laptop: "1024px",
       },
+      boxShadow: {
+        "xl-custom": "0px -1px 15px 2px rgba(0,0,0,0.20)",
+      },
     },
     colors: {
       white: "#fff",

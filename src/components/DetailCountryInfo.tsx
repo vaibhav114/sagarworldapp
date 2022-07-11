@@ -1,3 +1,22 @@
+interface DetailCountryInfoProps {
+  name: string;
+  nativeName: string;
+  population: string;
+  region: string;
+  subregion: string;
+  capital: string;
+  topLevelDomain: string;
+  currencies: string;
+  languages: [
+    edges {
+      node {
+        name: string
+      }
+    }
+  ];
+  borders: string[];
+}
+
 const DetailCountryInfo = ({
   name,
   nativeName,
@@ -9,7 +28,7 @@ const DetailCountryInfo = ({
   currencies,
   languages,
   borders,
-}) => {
+}: DetailCountryInfoProps) => {
   const language = languages.edges.map(({ node }) => node.name);
   const currency = currencies.edges.map(({ node }) => node.name);
 
@@ -37,9 +56,9 @@ const DetailCountryInfo = ({
   ];
 
   return (
-    <div className="my-[4rem] text-base">
+    <div className="font-medium">
       <h1 className="text-3xl font-bold">{name}</h1>
-      <div className="mt-8">
+      <div className="">
         <div className="detail space-y-2">
           {CountryInfo.map((c, item) => (
             <p key={item}>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const ThemeSwitcher = () => {
-  const [theme, setTheme] = useState(null);
+  const [theme, setTheme] = useState<string>("");
 
   useEffect(() => {
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
@@ -25,12 +25,12 @@ const ThemeSwitcher = () => {
       onClick={() => {
         setTheme(theme === "dark" ? "light" : "dark");
       }}
-      className="flex items-center font-medium text-xs"
+      className="sha flex items-center text-lg"
     >
       {theme === "dark" ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-4 w-4 mobileL:h-5 mobileL:w-5"
+          className="mr-1 h-5 w-5"
           viewBox="0 0 20 20"
           fill="currentColor"
         >
@@ -39,7 +39,7 @@ const ThemeSwitcher = () => {
       ) : (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
+          className="mr-1 h-5 w-5"
           viewBox="0 0 20 20"
           fill="currentColor"
         >

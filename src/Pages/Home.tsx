@@ -3,7 +3,7 @@ import { useState } from "react";
 import { CountryList, Filter, Loading, Search } from "../components";
 import { COUNTRIES_INFO } from "../components/schema";
 
-const regions = [
+const REGIONS = [
   { id: 1, name: "Filter by Region" },
   { id: 2, name: "Africa" },
   { id: 3, name: "Americas" },
@@ -13,16 +13,29 @@ const regions = [
   { id: 7, name: "Polar" },
 ];
 
+type Prop = propCountry[];
+
+export interface propCountry {
+  node: {
+    id: string;
+    name: string;
+    population: string;
+    region: string;
+    capital: string;
+    flag: string;
+  };
+}
+
 const Home = () => {
-  const [search, setSearch] = useState("");
-  const [selectregion, setSelectRegion] = useState(regions[0]);
+  const [search, setSearch] = useState<string>("");
+  const [selectregion, setSelectRegion] = useState(REGIONS[0]);
 
   const { data, loading, error } = useQuery(COUNTRIES_INFO);
 
   // search feature
-  const filteredCountries =
+  const filteredCountries: Prop =
     search !== ""
-      ? data?.countries?.edges?.filter((country) =>
+      ? data?.countries?.edges?.filter((country: propCountry) =>
           country.node.name.toLowerCase().includes(search.toLocaleLowerCase())
         )
       : data?.countries?.edges;
@@ -31,7 +44,7 @@ const Home = () => {
   const filteredCountriesByRegion =
     selectregion.id !== 1
       ? filteredCountries?.filter(
-          (country) => country.node.region === selectregion.name
+          (country: propCountry) => country.node.region === selectregion.name
         )
       : filteredCountries;
 
@@ -40,7 +53,7 @@ const Home = () => {
       <div className="containe my-11 flex flex-col items-center justify-between space-y-4 sm:flex-row sm:space-y-0">
         <Search search={search} setSearch={setSearch} />
         <Filter
-          regions={regions}
+          regions={REGIONS}
           selectregion={selectregion}
           setSelectRegion={setSelectRegion}
         />
