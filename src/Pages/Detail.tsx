@@ -3,19 +3,18 @@ import { memo } from "react";
 
 import { Link, useParams } from "react-router-dom";
 import { DetailCountryInfo, Loading } from "../components";
+import { DetailPageProps } from "../utils/Props";
 import { COUNTRY_INFO } from "../utils/schema";
 
 const Detail = () => {
   const countryName = useParams();
 
-  const { data, loading, error } = useQuery(COUNTRY_INFO, {
+  const { data, loading, error } = useQuery<DetailPageProps>(COUNTRY_INFO, {
     variables: { ID: countryName.id },
   });
 
   return (
-    <div className="containe text-base font-light">
-      {loading && <Loading />}
-      {error && <p>{error.message}</p>}
+    <div className="container-custom">
       <p className="mt-10 w-min rounded-[2px] py-2 px-6 shadow-xl-custom dark:bg-dark-blue mobileL:mt-[3rem]">
         <Link className="flex flex-row items-center justify-center" to="/">
           <svg
@@ -33,14 +32,14 @@ const Detail = () => {
           Back
         </Link>
       </p>
-      <div className="mt-14 flex flex-col mobileL:flex-row mobileL:items-center ">
-        <img
-          className="shadow-xl-custom"
-          src={data.country.flag}
-          alt={data.country.name}
-        />
-        <DetailCountryInfo {...data.country} />
-      </div>
+      {loading && <Loading />}
+      {error && <p>{error.message}</p>}
+      {!loading && (
+        <div className="grid grid-cols-2 place-content-center place-items-center">
+          <img alt="" src={data?.country.flag} />
+          <DetailCountryInfo {...data?.country!} />
+        </div>
+      )}
     </div>
   );
 };

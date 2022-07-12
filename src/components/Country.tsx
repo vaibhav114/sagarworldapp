@@ -10,31 +10,31 @@ const Country = ({
   capital,
   flag,
 }: CountryProps) => {
+  const CountryArray = [
+    { title: "Population", value: population.toLocaleString("en-US") },
+    { title: "Region", value: region },
+    { title: "Capital", value: capital },
+  ];
+
   return (
-    <div className="element-style h-[339px] w-[262px] overflow-hidden rounded-md">
+    <div className="element h-[350px] w-[265px] overflow-hidden rounded-md">
       <div className="h-1/2">
         <Link to={`/${name}/${id}`}>
           <img
-            loading="lazy"
             className="h-full w-full object-cover"
+            loading="lazy"
             src={flag}
             alt="Country Flag"
           />
         </Link>
       </div>
-      <div className="p-5">
-        <h2 className="mb-4 text-lg font-bold">{name}</h2>
-        <div className="space-y-1 font-semibold">
-          <p>
-            Population: <span>{population.toLocaleString("en-US")}</span>
+      <div className="px-5 detail">
+        <h2 className="font-bold my-4 text-lg">{name}</h2>
+        {CountryArray.map((item, index) => (
+          <p key={index} className="font-semibold">
+            {item.title}: <span>{item.value}</span>
           </p>
-          <p>
-            Region: <span>{region}</span>
-          </p>
-          <p>
-            Capital: <span>{capital}</span>
-          </p>
-        </div>
+        ))}
       </div>
     </div>
   );

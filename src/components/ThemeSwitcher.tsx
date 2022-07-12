@@ -25,7 +25,7 @@ const ThemeSwitcher = () => {
       onClick={() => {
         setTheme(theme === "dark" ? "light" : "dark");
       }}
-      className="sha flex items-center text-lg"
+      className="flex items-center"
     >
       {theme === "dark" ? (
         <svg

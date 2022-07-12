@@ -1,66 +1,45 @@
+import { useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 
-interface FilterProps {
-  regions: region[];
-  selectregion: region;
-  setSelectRegion: (region: region) => void;
-}
+const people = [
+  { id: 1, name: "Durward Reynolds" },
+  { id: 2, name: "Kenton Towne" },
+  { id: 3, name: "Therese Wunsch" },
+  { id: 4, name: "Benedict Kessler" },
+  { id: 5, name: "Katelyn Rohan" },
+];
 
-type region = {
-  id: number;
-  name: string;
-};
+function Filter() {
+  const [selectedPerson, setSelectedPerson] = useState(people[0]);
 
-const Filter = ({ regions, selectregion, setSelectRegion }: FilterProps) => {
   return (
-    <>
-      <Listbox
-        className="element-style relative flex items-center rounded-md p-[18px] shadow-md sm:basis-48"
-        as={`div`}
-        value={selectregion}
-        onChange={setSelectRegion}
+    <Listbox
+      as={`div`}
+      className={`flex flex-col w-max`}
+      value={selectedPerson}
+      onChange={setSelectedPerson}
+    >
+      <Listbox.Button className={`element rounded-md p-4`}>
+        {selectedPerson.name}
+      </Listbox.Button>
+      <Transition
+        enter="transition duration-100 ease-out"
+        enterFrom="transform scale-95 opacity-0"
+        enterTo="transform scale-100 opacity-100"
+        leave="transition duration-75 ease-out"
+        leaveFrom="transform scale-100 opacity-100"
+        leaveTo="transform scale-95 opacity-0"
       >
-        {({ open }) => (
-          <>
-            <Listbox.Button
-              className={`flex w-full items-center justify-between`}
-            >
-              {selectregion.name}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className={`ml-8 h-5 w-5 sm:ml-0 ${
-                  open ? `rotate-180 transition-all` : `transition-all`
-                }`}
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </Listbox.Button>
-            <Transition
-              className={`element-style absolute top-16 w-full -translate-x-5 cursor-pointer rounded-md p-5`}
-            >
-              <Listbox.Options>
-                {regions.slice(1).map((region) => (
-                  <Listbox.Option
-                    className={`mb-2 hover:text-dark-gray`}
-                    key={region.id}
-                    value={region}
-                  >
-                    {region.name}
-                  </Listbox.Option>
-                ))}
-              </Listbox.Options>
-            </Transition>
-          </>
-        )}
-      </Listbox>
-    </>
+        <Listbox.Options className={`element p-3 absolute rounded-md mt-1 w-full`}>
+          {people.map((person) => (
+            <Listbox.Option className={`cursor-pointer`} key={person.id} value={person}>
+              {person.name}
+            </Listbox.Option>
+          ))}
+        </Listbox.Options>
+      </Transition>
+    </Listbox>
   );
-};
+}
 
 export default Filter;

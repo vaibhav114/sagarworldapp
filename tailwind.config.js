@@ -4,12 +4,6 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
-      screens: {
-        mobile: "375px",
-        mobileL: "426px",
-        tablet: "769px",
-        laptop: "1024px",
-      },
       boxShadow: {
         "xl-custom": "0px -1px 15px 2px rgba(0,0,0,0.20)",
       },
@@ -25,6 +19,13 @@ module.exports = {
     fontFamilys: {
       sans: ["Nunito Sans", "sans-serif"],
     },
+    screens: {
+      mobile: "375px",
+      mobileL: "426px",
+      tablet: "769px",
+      laptop: "1024px",
+      laptopL: "1440px",
+    },
   },
-  plugins: [require("@tailwindcss/forms")],
+  plugins: [],
 };

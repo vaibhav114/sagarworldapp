@@ -9,8 +9,8 @@ interface Props {
 // if countries is empty, then display a message
 const CountryListEmpty = () => {
   return (
-    <div className="flex items-center justify-center text-xl">
-      <p>No countries found</p>
+    <div className="flex items-center justify-center">
+      <h1>No countries found</h1>
     </div>
   );
 };
@@ -18,8 +18,8 @@ const CountryListEmpty = () => {
 const CountryList = ({ countries }: Props) => {
   return (
     <>
-      {countries.length === 0 && <CountryListEmpty />}
-      <div className="mb-4 grid grid-cols-1 place-items-center gap-x-[73px] gap-y-[70px] sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
+      {countries?.length === 0 && <CountryListEmpty />}
+      <div className="grid place-items-center gap-10 mobileL:grid-cols-2 tablet:grid-cols-2 tablet:gap-20 laptop:grid-cols-3 laptopL:grid-cols-4">
         {countries?.map(({ node }) => {
           return <Country key={node.name} {...node} />;
         })}
