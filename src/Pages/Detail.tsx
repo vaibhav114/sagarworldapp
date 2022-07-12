@@ -63,6 +63,8 @@ const Detail = () => {
     },
   ];
 
+  const borderCountries = countryData?.borders;
+
   return (
     <div className="container-custom">
       <p className="mt-10 w-min rounded-[2px] py-2 px-6 shadow-xl-custom dark:bg-dark-blue mobileL:mt-[3rem]">
@@ -85,13 +87,15 @@ const Detail = () => {
       {loading && <Loading />}
       {error && <p>{error.message}</p>}
       {!loading && (
-        <div className="mt-16 flex flex-wrap  mobileL:flex-row">
-          <div className="h-80 w-96">
-            <img alt="" className="shadow-xl" src={data?.country.flag} />
-          </div>
-          <div className="my-10">
+        <div className="flex flex-col items-center justify-between mobileL:flex-row">
+          <img
+            alt=""
+            className="mobileL:h-[300px] mobileL:mobileL:w-[400px]"
+            src={data?.country.flag}
+          />
+          <div className="">
             <h1 className="text-3xl font-bold">{data?.country.name}</h1>
-            <div className="mt-6 flex flex-row gap-x-24">
+            <div className="flex flex-col gap-y-10 mobileL:flex-row mobileL:gap-y-0 mobileL:gap-x-24">
               <div className="detail space-y-1">
                 {countryInfo.slice(1, 5).map((item) => (
                   <p key={item.id}>
@@ -107,7 +111,16 @@ const Detail = () => {
                 ))}
               </div>
             </div>
-            <div>{countryData?.borders.map((border) => border).join(", ")}</div>
+            <div className="detail max-w-5xl">
+              <p className="flex flex-row flex-wrap space-x-2">
+                Border Countries:{" "}
+                {borderCountries?.map((border) => (
+                  <span key={border} className="element py-1 px-4">
+                    {border}
+                  </span>
+                ))}
+              </p>
+            </div>
           </div>
         </div>
       )}
