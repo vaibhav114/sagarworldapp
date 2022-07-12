@@ -28,10 +28,10 @@ const Country = ({
           />
         </Link>
       </div>
-      <div className="px-5 detail">
-        <h2 className="font-bold my-4 text-lg">{name}</h2>
+      <div className="detail px-5">
+        <h2 className="my-4 text-lg font-bold">{name}</h2>
         {CountryArray.map((item, index) => (
-          <p key={index} className="font-semibold">
+          <p key={index}>
             {item.title}: <span>{item.value}</span>
           </p>
         ))}

@@ -15,7 +15,7 @@ function Filter() {
   return (
     <Listbox
       as={`div`}
-      className={`flex flex-col w-max`}
+      className={`flex w-52 flex-col`}
       value={selectedPerson}
       onChange={setSelectedPerson}
     >
@@ -30,9 +30,15 @@ function Filter() {
         leaveFrom="transform scale-100 opacity-100"
         leaveTo="transform scale-95 opacity-0"
       >
-        <Listbox.Options className={`element p-3 absolute rounded-md mt-1 w-full`}>
+        <Listbox.Options
+          className={`element absolute mt-1 w-full rounded-md p-3`}
+        >
           {people.map((person) => (
-            <Listbox.Option className={`cursor-pointer`} key={person.id} value={person}>
+            <Listbox.Option
+              className={`cursor-pointer py-1 hover:text-dark-gray`}
+              key={person.id}
+              value={person}
+            >
               {person.name}
             </Listbox.Option>
           ))}

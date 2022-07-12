@@ -20,7 +20,6 @@ const Search = ({ search, setSearch }: SearchProps) => {
       <form role={`search`}>
         <input
           className="w-72 border-none bg-white p-4 text-dark-gray focus:outline-none dark:bg-dark-blue dark:text-white dark:placeholder:text-white mobileL:w-96"
-          value={search}
           type="search"
           placeholder="Search for a country..."
           aria-label="Search for a country by name"
