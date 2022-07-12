@@ -5,7 +5,7 @@ import Home from "./Pages/Home";
 
 function App() {
   return (
-    <div>
+    <div className="select-none">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

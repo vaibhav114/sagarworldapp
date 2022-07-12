@@ -15,6 +15,9 @@
     @apply mx-auto w-[85%];
   }
 
+  .detail > p {
+    @apply font-semibold;
+  }
   .detail > p > span {
     @apply font-normal text-dark-blue-light-text/80 dark:text-white/80;
   }
