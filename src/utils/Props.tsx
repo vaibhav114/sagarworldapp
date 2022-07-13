@@ -1,10 +1,7 @@
-export interface CountryProps {
-  id: string;
-  name: string;
-  population: number;
-  region: string;
-  capital: string;
-  flag: string;
+export interface HomeCountryNodeProps {
+  countries: {
+    edges: CountryNodeProps[];
+  };
 }
 
 export interface CountryNodeProps {
@@ -18,9 +15,29 @@ export interface CountryNodeProps {
   };
 }
 
+export type CountryProps = {
+  id: string;
+  name: string;
+  population: number;
+  region: string;
+  capital: string;
+  flag: string;
+};
+
 export interface SearchProps {
   search: string;
   setSearch: (search: string) => void;
+}
+
+export type FilterProps = {
+  regions: RegionProps[];
+  selectregion: RegionProps;
+  setSelectRegion: (region: RegionProps) => void;
+};
+
+interface RegionProps {
+  id: number;
+  name: string;
 }
 
 export interface DetailPageProps {

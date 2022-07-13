@@ -87,39 +87,36 @@ const Detail = () => {
       {loading && <Loading />}
       {error && <p>{error.message}</p>}
       {!loading && (
-        <div className="flex flex-col items-center justify-between mobileL:flex-row">
-          <img
-            alt=""
-            className="mobileL:h-[300px] mobileL:mobileL:w-[400px]"
-            src={data?.country.flag}
-          />
-          <div className="">
-            <h1 className="text-3xl font-bold">{data?.country.name}</h1>
-            <div className="flex flex-col gap-y-10 mobileL:flex-row mobileL:gap-y-0 mobileL:gap-x-24">
-              <div className="detail space-y-1">
-                {countryInfo.slice(1, 5).map((item) => (
-                  <p key={item.id}>
-                    {item.title}: <span>{item.value}</span>
-                  </p>
-                ))}
-              </div>
-              <div className="detail space-y-1">
-                {countryInfo.slice(5, 8).map((item) => (
-                  <p key={item.id}>
-                    {item.title}: <span>{item.value}</span>
-                  </p>
-                ))}
-              </div>
+        <div>
+          <div className="flex flex-row items-center justify-between">
+            <div className="flex flex-col items-center justify-center">
+              <img
+                className="h-32 w-32 rounded-full"
+                src={countryData?.flag}
+                alt={countryData?.name}
+              />
+              <h1 className="mt-4 text-2xl font-bold">{countryData?.name}</h1>
             </div>
-            <div className="detail max-w-5xl">
-              <p className="flex flex-row flex-wrap space-x-2">
-                Border Countries:{" "}
-                {borderCountries?.map((border) => (
-                  <span key={border} className="element py-1 px-4">
-                    {border}
-                  </span>
-                ))}
-              </p>
+            <div className="flex flex-col items-center justify-center">
+              {countryInfo.map((info) => (
+                <p key={info.id} className="text-sm">
+                  <span className="font-bold">{info.title}:</span> {info.value}
+                </p>
+              ))}
+              {borderCountries && (
+                <p className="text-sm">
+                  <span className="font-bold">Border Countries:</span>
+                  {borderCountries.map((border) => (
+                    <Link
+                      key={border}
+                      className="text-sm"
+                      to={`/country/${border}`}
+                    >
+                      {border}
+                    </Link>
+                  ))}
+                </p>
+              )}
             </div>
           </div>
         </div>
