@@ -27,7 +27,7 @@ const Filter: FC<FilterProps> = ({
         <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="filter-icon h-5 w-5 transition duration-300 ease-in-out"
+            className="filter-icon h-5 w-5 transition duration-500 ease-in-out"
             viewBox="0 0 20 20"
             fill="currentColor"
           >

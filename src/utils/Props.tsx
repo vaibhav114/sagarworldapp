@@ -1,4 +1,4 @@
-export interface HomeCountryNodeProps {
+export interface CountriesProps {
   countries: {
     edges: CountryNodeProps[];
   };
@@ -25,7 +25,6 @@ export type CountryProps = {
 };
 
 export interface SearchProps {
-  search: string;
   setSearch: (search: string) => void;
 }
 
@@ -65,3 +64,8 @@ type commanProp = {
     name: string;
   };
 };
+
+
+export interface FormValues {
+  text: string;
+}

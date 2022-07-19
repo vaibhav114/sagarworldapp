@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
 import { CountryList, Filter, Loading, Search } from "../components";
-import { CountryNodeProps, HomeCountryNodeProps } from "../utils/Props";
+import { CountriesProps, CountryNodeProps } from "../utils/Props";
 
 import { COUNTRIES_INFO } from "../utils/schema";
 
@@ -20,8 +20,9 @@ const Home = () => {
   const [searchResults, setSearchResults] = useState<CountryNodeProps[]>();
   const [selectregion, setSelectRegion] = useState(REGIONS[0]);
 
+
   const { data, loading, error } =
-    useQuery<HomeCountryNodeProps>(COUNTRIES_INFO);
+    useQuery<CountriesProps>(COUNTRIES_INFO);
 
   const countries = data?.countries?.edges;
 
@@ -29,10 +30,10 @@ const Home = () => {
     const filteredCountries =
       search !== ""
         ? countries?.filter((country) =>
-            country?.node.name
-              .toLowerCase()
-              .includes(search.toLocaleLowerCase())
-          )
+          country?.node.name
+            .toLowerCase()
+            .includes(search.toLocaleLowerCase())
+        )
         : countries;
     setSearchResults(filteredCountries);
   }, [search, countries]);
@@ -41,8 +42,8 @@ const Home = () => {
     const filteredCountries =
       selectregion.id !== 1
         ? countries?.filter(
-            (country) => country?.node.region === selectregion.name
-          )
+          (country) => country?.node.region === selectregion.name
+        )
         : countries;
     setSearchResults(filteredCountries);
   }, [selectregion.id, selectregion.name, countries]);
@@ -50,7 +51,7 @@ const Home = () => {
   return (
     <div className="container-custom">
       <div className="my-11 flex flex-col items-center space-y-10 mobileL:justify-between tablet:flex-row tablet:space-y-0">
-        <Search search={search} setSearch={setSearch} />
+        <Search setSearch={setSearch} />
         <Filter
           regions={REGIONS}
           selectregion={selectregion}

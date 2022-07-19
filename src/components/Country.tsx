@@ -17,7 +17,7 @@ const Country = ({
   ];
 
   return (
-    <div className="element h-[350px] w-[265px] overflow-hidden rounded-md">
+    <div className="element h-[350px] hover:-translate-y-2 duration-150 transition-all ease-in-out w-[265px] overflow-hidden rounded-md">
       <div className="h-1/2">
         <Link to={`/${name}/${id}`}>
           <img

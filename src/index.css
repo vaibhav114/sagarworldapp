@@ -12,7 +12,7 @@
   }
 
   .container-custom {
-    @apply mx-auto w-[85%];
+    @apply mx-auto w-[80%];
   }
 
   .detail > p {
