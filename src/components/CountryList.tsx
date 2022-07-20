@@ -19,7 +19,7 @@ const CountryList: FC<Props> = ({ countries }) => {
   return (
     <>
       {countries?.length === 0 && <CountryListEmpty />}
-      <div className="grid place-items-center gap-14 mobileL:grid-cols-2 tablet:grid-cols-2 laptop:grid-cols-3 laptopL:grid-cols-4">
+      <div className="grid place-items-center gap-14 mb-8 mobileL:grid-cols-2 tablet:grid-cols-2 laptop:grid-cols-3 laptopL:grid-cols-4">
         {countries?.map(({ node }) => {
           return <Country key={node.name} {...node} />;
         })}

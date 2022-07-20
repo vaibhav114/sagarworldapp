@@ -28,7 +28,7 @@ const Country = ({
           />
         </Link>
       </div>
-      <div className="detail px-5">
+      <div className="detail px-5 border-t-[1px] border-dark-gray">
         <h2 className="my-4 text-lg font-bold">{name}</h2>
         {CountryArray.map((item, index) => (
           <p key={index}>

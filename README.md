@@ -49,7 +49,6 @@ Users should be able to:
 - [Tailwindcss](https://tailwindcss.com/) - For styles
 - [Apollo](https://www.apollographql.com/) - For GraphQL
 
-
 ## Author
 
 - Website - [Add your name here](https://www.your-site.com)

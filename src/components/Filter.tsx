@@ -21,7 +21,7 @@ const Filter: FC<FilterProps> = ({
     >
       <Listbox.Button
         onClick={handleClick}
-        className="element relative rounded-md p-4 text-left"
+        className="element relative rounded-md p-3 text-left"
       >
         <span>{selectregion.name}</span>
         <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
@@ -57,7 +57,7 @@ const Filter: FC<FilterProps> = ({
               <Listbox.Option
                 className={({ active }) =>
                   `cursor-pointer py-1 ${
-                    active ? "bg-dark-blue-dark-background/40" : ""
+                    active ? "dark:bg-dark-blue-dark-background/40 bg-dark-gray/10" : ""
                   }`
                 }
                 key={region.id}

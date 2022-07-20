@@ -25,6 +25,7 @@ export type CountryProps = {
 };
 
 export interface SearchProps {
+  search: string;
   setSearch: (search: string) => void;
 }
 
@@ -66,6 +67,3 @@ type commanProp = {
 };
 
 
-export interface FormValues {
-  text: string;
-}
