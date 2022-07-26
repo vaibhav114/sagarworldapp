@@ -1,17 +1,10 @@
-import { useEffect, useState } from "react";
+import { useLayoutEffect } from "react";
+import useLocalStorage from "../hooks/use-localstorage";
 
 const ThemeSwitcher = () => {
-  const [theme, setTheme] = useState<string>("");
+  const [theme, setTheme] = useLocalStorage("theme", "light");
 
-  useEffect(() => {
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setTheme("light");
-    } else {
-      setTheme("dark");
-    }
-  }, []);
-
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
     } else {
